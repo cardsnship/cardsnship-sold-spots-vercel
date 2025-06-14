@@ -1,8 +1,8 @@
-import fetch from 'node-fetch';
-import { parse } from 'csv-parse/sync';
+const fetch = require('node-fetch');
+const { parse } = require('csv-parse/sync');
 
-export default async function handler(req, res) {
-  const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTZ5T19xvCgbLjSqqpwaeA2lnUgJHvDjcAKRfKmIWsNFgJ1X4t9g-mY-UvAfrKOBnoCvwnBrf83Rhov/pub?gid=0&single=true&output=csv';
+module.exports = async (req, res) => {
+  const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-...';
 
   try {
     const response = await fetch(sheetUrl);
@@ -10,7 +10,7 @@ export default async function handler(req, res) {
 
     const records = parse(text, {
       columns: true,
-      skip_empty_lines: true
+      skip_empty_lines: true,
     });
 
     const output = {};
@@ -24,4 +24,4 @@ export default async function handler(req, res) {
   } catch (err) {
     res.status(500).json({ error: 'Failed to fetch or parse sheet' });
   }
-}
+};
