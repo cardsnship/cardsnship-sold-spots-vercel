@@ -1,0 +1,6 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "api/sold_spots.js", "use": "@vercel/node" }
+  ]
+}
