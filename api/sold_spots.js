@@ -2,8 +2,7 @@ import fetch from 'node-fetch';
 import { parse } from 'csv-parse/sync';
 
 export default async function handler(req, res) {
-  const sport = req.query.sport?.toUpperCase() || 'NFL';
-  const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTZ5T19xvCgbLjSqqpwaeA2lnUgJHvDjcAKRfKmIWsNFgJ1X4t9g-mY-UvAfrKOBnoCvwnBrf83Rhov/pubhtml';
+  const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTZ5T19xvCgbLjSqqpwaeA2lnUgJHvDjcAKRfKmIWsNFgJ1X4t9g-mY-UvAfrKOBnoCvwnBrf83Rhov/pub?gid=0&single=true&output=csv';
 
   try {
     const response = await fetch(sheetUrl);
@@ -16,7 +15,7 @@ export default async function handler(req, res) {
 
     const output = {};
     records.forEach(row => {
-      if (row.Sport?.toUpperCase() === sport && row['Buyer Username']) {
+      if (row['Buyer Username']) {
         output[row.ID] = row['Buyer Username'];
       }
     });
