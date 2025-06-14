@@ -3,7 +3,7 @@ import { parse } from 'csv-parse/sync';
 
 export default async function handler(req, res) {
   const sport = req.query.sport?.toUpperCase() || 'NFL';
-  const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTZ5T19xvCgbLjSqqpwaeA2lnUgJHvDjcAKRfKmIWsNFgJ1X4t9g-mY-UvAfrKOBnoCvwnBrf83Rhov/pub?output=csv';
+  const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTZ5T19xvCgbLjSqqpwaeA2lnUgJHvDjcAKRfKmIWsNFgJ1X4t9g-mY-UvAfrKOBnoCvwnBrf83Rhov/pubhtml';
 
   try {
     const response = await fetch(sheetUrl);
