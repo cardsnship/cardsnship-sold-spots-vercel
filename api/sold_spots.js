@@ -2,7 +2,7 @@ const fetch = require('node-fetch');
 const { parse } = require('csv-parse/sync');
 
 module.exports = async (req, res) => {
-  const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-...';
+  const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTZ5T19xvCgbLjSqqpwaeA2lnUgJHvDjcAKRfKmIWsNFgJ1X4t9g-mY-UvAfrKOBnoCvwnBrf83Rhov/pub?gid=0&single=true&output=csv';
 
   try {
     const response = await fetch(sheetUrl);
